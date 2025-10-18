@@ -1,112 +1,448 @@
 <!DOCTYPE html>
 <html lang="bg">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Архитектът на Аза | Официална страница на книгата</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: "Playfair Display", serif;
-      background-color: #0c0c0c;
-      color: #f6e7c1;
-      line-height: 1.6;
-      text-align: center;
-    }
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Архитектът на Аза | От Мисловен Хаос към Състояние на Поток</title>
+    <meta name="description" content="17 глави. 30 дни. Пълна трансформация на ума. Спри да бъдеш потребител на живота си. Стани Архитект. Специална оферта." />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/c1219b1695.js" crossorigin="anonymous"></script>
 
-    .container {
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 40px 20px;
-    }
+    <style>
+        /* Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: "Inter", sans-serif;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+            color: #f6e7c1;
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
 
-    h1 {
-      font-size: 2.2em;
-      letter-spacing: 1px;
-      margin-bottom: 20px;
-      color: #f5d678;
-    }
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 60px 20px 40px;
+            position: relative;
+        }
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(245,214,120,0.15) 0%, transparent 70%);
+            border-radius: 50%;
+            z-index: 0;
+        }
+        h1 {
+            font-family: "Playfair Display", serif;
+            font-size: 2.8em;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+            color: #f5d678;
+            position: relative;
+            z-index: 1;
+            text-shadow: 0 0 20px rgba(245,214,120,0.4);
+            line-height: 1.2;
+        }
+        .subtitle {
+            font-size: 1.3em;
+            color: #e9e1cb;
+            margin-bottom: 30px;
+            font-weight: 300;
+            position: relative;
+            z-index: 1;
+        }
 
-    h2 {
-      font-size: 1.3em;
-      color: #e9e1cb;
-      margin-bottom: 30px;
-      font-weight: normal;
-    }
+        /* Badge */
+        .badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #d4af37 0%, #f5d678 100%);
+            color: #0a0a0a;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: 700;
+            margin-bottom: 30px;
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.03); }
+        }
 
-    .cover {
-      width: 100%;
-      max-width: 350px;
-      margin: 20px auto;
-      border: 2px solid #f5d678;
-      border-radius: 6px;
-      box-shadow: 0 0 25px rgba(255, 215, 100, 0.2);
-    }
+        /* Cover Image */
+        .cover-wrapper {
+            position: relative;
+            margin: 40px auto;
+            max-width: 380px;
+        }
+        .cover {
+            width: 100%;
+            border: 4px solid #f5d678;
+            border-radius: 12px;
+            box-shadow: 0 25px 70px rgba(245,214,120,0.4);
+            transition: transform 0.3s ease;
+        }
+        .cover:hover {
+            transform: translateY(-8px);
+        }
 
-    .btn {
-      display: inline-block;
-      background-color: #f5d678;
-      color: #0c0c0c;
-      padding: 14px 28px;
-      margin-top: 20px;
-      font-size: 1.1em;
-      font-weight: bold;
-      border-radius: 6px;
-      text-decoration: none;
-      transition: all 0.3s ease;
-    }
+        /* CTA Button */
+        .cta-section {
+            text-align: center;
+            margin: 50px 0;
+            padding: 40px 20px;
+            background: rgba(245,214,120,0.05);
+            border-radius: 12px;
+            border: 1px solid rgba(245,214,120,0.2);
+        }
+        .btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #f5d678 0%, #d4af37 100%);
+            color: #0a0a0a;
+            padding: 18px 45px;
+            font-size: 1.3em;
+            font-weight: 700;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(245,214,120,0.5);
+            position: relative;
+            overflow: hidden;
+        }
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(245,214,120,0.7);
+        }
+        .btn i {
+            margin-right: 10px;
+        }
+        .price {
+            margin-top: 20px;
+            font-size: 1.1em;
+            display: flex;
+            justify-content: center;
+            align-items: baseline;
+        }
+        .old-price {
+            text-decoration: line-through;
+            color: #888;
+            margin-right: 15px;
+            font-size: 1em;
+        }
+        .new-price {
+            color: #f5d678;
+            font-size: 1.8em; /* Увеличен размер на новата цена */
+            font-weight: bold;
+        }
 
-    .btn:hover {
-      background-color: #fff;
-      color: #000;
-      transform: scale(1.05);
-    }
+        /* Urgency */
+        .urgency {
+            text-align: center;
+            background: linear-gradient(135deg, rgba(212,175,55,0.2) 0%, rgba(245,214,120,0.1) 100%);
+            padding: 30px;
+            border-radius: 12px;
+            margin: 40px 0;
+            border: 2px dashed #f5d678;
+        }
+        .urgency-text {
+            font-size: 1.3em;
+            font-weight: 700;
+            color: #f5d678;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+        .counter {
+            font-size: 2.5em;
+            font-weight: bold;
+            color: #fff;
+            display: inline-block;
+            padding: 0 10px;
+            border-bottom: 3px solid #f5d678;
+        }
 
-    .section {
-      margin: 50px 0;
-    }
+        /* Problem Section */
+        .problem-section {
+            margin: 60px 0;
+            text-align: center;
+        }
+        .problem-section h2 {
+            font-family: "Playfair Display", serif;
+            color: #d4af37;
+            font-size: 2.2em;
+            margin-bottom: 30px;
+        }
+        .problem-list {
+            list-style: none;
+            text-align: left;
+            padding: 0 20px;
+            display: grid;
+            gap: 15px;
+        }
+        .problem-list li {
+            position: relative;
+            padding-left: 35px;
+            font-size: 1.05em;
+            color: #e9e1cb;
+        }
+        .problem-list li::before {
+            content: "✘";
+            position: absolute;
+            left: 0;
+            color: #e74c3c; /* Червен цвят за болката */
+            font-weight: bold;
+            font-size: 1.2em;
+        }
 
-    .quote {
-      font-style: italic;
-      font-size: 1.1em;
-      color: #e0d7b8;
-      border-left: 3px solid #f5d678;
-      padding-left: 15px;
-      margin-top: 40px;
-    }
 
-    footer {
-      margin-top: 60px;
-      font-size: 0.9em;
-      color: #888;
-    }
-  </style>
+        /* Features (What You Get) */
+        .content-box {
+            background: rgba(245,214,120,0.05);
+            padding: 40px;
+            border-radius: 12px;
+            border-left: 4px solid #f5d678;
+            margin: 50px 0;
+        }
+        .content-box h2 {
+            font-family: "Playfair Display", serif;
+            color: #f5d678;
+            font-size: 2em;
+            margin-bottom: 25px;
+        }
+        .content-box ul {
+            list-style: none;
+            text-align: left;
+        }
+        .content-box li {
+            padding: 12px 0;
+            padding-left: 30px;
+            position: relative;
+            font-size: 1.05em;
+            border-bottom: 1px dashed rgba(245,214,120,0.1);
+        }
+        .content-box li:last-child {
+             border-bottom: none;
+        }
+        .content-box li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #3fcc8e; /* Зелен/златен цвят за ползата */
+            font-weight: bold;
+            font-size: 1.3em;
+        }
+        
+        /* Quote */
+        .quote {
+            font-family: "Playfair Display", serif;
+            font-style: italic;
+            font-size: 1.6em; /* Увеличен размер */
+            color: #f5d678;
+            text-align: center;
+            margin: 60px 0;
+            padding: 40px 20px;
+            border-top: 2px solid rgba(245,214,120,0.3);
+            border-bottom: 2px solid rgba(245,214,120,0.3);
+            line-height: 1.4;
+        }
+        .quote span {
+            display: block;
+            font-size: 0.6em;
+            margin-top: 15px;
+            font-weight: 400;
+            font-style: normal;
+        }
+
+
+        /* Footer */
+        footer {
+            text-align: center;
+            margin-top: 80px;
+            padding: 30px 20px;
+            border-top: 1px solid rgba(245,214,120,0.2);
+            color: #888;
+            font-size: 0.9em;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.2em;
+            }
+            .subtitle {
+                font-size: 1.1em;
+            }
+            .btn {
+                font-size: 1.1em;
+                padding: 15px 35px;
+                width: 100%;
+                max-width: 350px;
+            }
+            .price {
+                flex-direction: column;
+                margin-top: 15px;
+            }
+            .old-price {
+                margin-right: 0;
+            }
+            .features {
+                grid-template-columns: 1fr;
+            }
+            .quote {
+                font-size: 1.3em;
+            }
+        }
+    </style>
 </head>
 <body>
-  <div class="container">
-    <h1>📘 Архитектът на Аза</h1>
-    <h2>Как да превърнеш мисловния хаос в яснота, поток и трайна свобода</h2>
+    <div class="container">
+        
+        <!-- Hero Section - Усилен Hook -->
+        <div class="hero">
+            <div class="badge"><i class="fas fa-hammer"></i> СИСТЕМЕН SELF-HELP</div>
+            <h1>Спри да бъдеш Потребител. Стани **Архитект** на Аза.</h1>
+            <p class="subtitle">Как да превърнеш Мисловния Хаос в яснота, Състояние на Поток и **Трайна Свобода** — с научно доказана Архитектура на Ума.</p>
+        </div>
+        
+        <!-- Cover Image -->
+        <div class="cover-wrapper">
+             <!-- Използвам placeholder, тъй като не знам дали URL-ът ти е публичен -->
+            <img src="https://placehold.co/380x570/36454F/F5D678?text=АРХИТЕКТЪТ+НА+АЗ-А" alt="Архитектът на Аза - Корица на книга" class="cover" onerror="this.onerror=null;this.src='https://placehold.co/380x570/36454F/F5D678?text=АРХИТЕКТЪТ+НА+АЗ-А';" />
+        </div>
+        
+        <!-- Urgency - Позициониран високо -->
+        <div class="urgency">
+            <div class="urgency-text"><i class="fas fa-bolt"></i> ИЗВЪНРЕДНО: Лимитиран Брой!</div>
+            <div class="counter" id="counter">20</div>
+            <div style="color: #e9e1cb; margin-top: 10px; font-size: 1em; font-weight: 300;">Последни бройки на **промоционалната цена**. След това цената се връща на 19.99 лв.</div>
+        </div>
 
-    <img src="https://raw.githubusercontent.com/alphaboostgift/arhitektat-na-aza-landing/main/book-cover.jpg" alt="Архитектът на Аза" class="cover" />
+        <!-- Main CTA -->
+        <div class="cta-section">
+            <a href="https://payhip.com/AlphaArchitect" class="btn" target="_blank">
+                <i class="fas fa-arrow-right"></i> Вземи Твоя Blueprint Сега
+            </a>
+            <div class="price">
+                <span class="old-price">19.99 лв</span>
+                <span class="new-price">6.99 лв</span>
+                <span style="color: #f5d678; font-weight: 600; font-size: 1.1em;"> (Спестяваш 70%)</span>
+            </div>
+        </div>
+        
+        <hr style="border: 0; border-top: 1px solid rgba(245,214,120,0.1);">
 
-    <p class="section">
-      Това не е просто книга. Това е система, която ще ти помогне да възстановиш
-      архитектурата на собствения си ум.
-    </p>
+        <!-- The Problem - Психологическата Болка -->
+        <div class="problem-section">
+            <h2>Омръзна ли ти да живееш на **Автопилот**?</h2>
+            <p style="font-size: 1.1em; margin-bottom: 40px; color: #ccc;">
+                Ти не си разсеян. Ти си жертва на **информационна лудост**. Ето какво саботира живота ти всеки ден:
+            </p>
+            <ul class="problem-list">
+                <li>Усещане, че животът ти се случва **НА теб**, а не **ЧРЕЗ теб**.</li>
+                <li>Изтощение от **Мисловен Шум** – гласовете на съмнение и чуждите очаквания.</li>
+                <li>Постоянно **отлагане** на най-важните ти цели, докато скролваш безкрайно.</li>
+                <li>Неспособност да контролираш **Гнева, Страха и Вината**, превръщайки ги в саботьори.</li>
+                <li>Липса на ясен **GPS на Мисловния Пейзаж** (Глава 3).</li>
+            </ul>
+        </div>
 
-    <p>
-      Страдание, хаос, объркване — те не са врагове. Те са материалът, от който ще изградиш новото си Аз.
-    </p>
-
-    <a href="https://your-link-here.com" class="btn" target="_blank">🔥 Вземи книгата за 6.99 лв</a>
-
-    <div class="quote">
-      “Не си счупен — просто е време да се пренастроиш.”
+        <!-- What You Get - Конкретни ползи от главите -->
+        <div class="content-box">
+            <h2><i class="fas fa-book-open"></i> Какво ще построиш за 30 Дни:</h2>
+            <ul>
+                <li>Овладяване на **90-Секундното Правило** (Глава 4): Как емоцията преминава за 90 секунди и как да спреш да я подхранваш.</li>
+                <li>**Емоционална Алхимия** (Глава 8): Превръщане на гнева и страха в гориво, вместо в саботьор.</li>
+                <li>Система за **Дълбока Работа (Deep Work)** (Глава 9): Как да превърнеш времето в най-ценната си валута.</li>
+                <li>Трансформиране на **Провала в Данни** (Глава 11): Прекратяване на страха от грешки чрез мислене като учен.</li>
+                <li>**Антикрехкост** (Глава 12): Как да не се чупиш под стрес, а да ставаш по-силен от него.</li>
+                <li>Изграждане на **Ритуали на Висока Ефективност** (Глава 15): Разликата между безсмислена рутина и акт на създаване на себе си.</li>
+                <li>**Благодарността като Неврология** (Глава 13): Как да пренастроиш мозъка си от режим "оцеляване" към "изобилие".</li>
+            </ul>
+        </div>
+        
+        <!-- Final Quote -->
+        <div class="quote">
+            "Ти не си жертва на мислите си — ти си техният Архитект. Всяко твое действие е експеримент, не екзекуция."
+            <span>— Архитектът на Аза</span>
+        </div>
+        
+        <!-- Social Proof: Who it's NOT for (Stronger psychological filtering) -->
+        <div class="content-box">
+            <h2><i class="fas fa-crosshairs"></i> За кого НЕ Е тази книга:</h2>
+            <p style="font-size: 1.1em; margin-bottom: 20px; color: #ccc;">
+                Тази книга е за сериозни хора, които търсят дълбока, **трайна промяна**. Тя не е за:
+            </p>
+            <ul class="problem-list" style="padding-left: 0;">
+                <li>Тези, които търсят **"Бързо Обогатяване"** или **"Лесни Решения"**.</li>
+                <li>Хора, които са доволни от живота си на **Автопилот** и не искат да поемат отговорност.</li>
+                <li>Фенове на празни **мотивационни цитати** без практическа система.</li>
+            </ul>
+        </div>
+        
+        <!-- Final CTA - Обобщен и мощен -->
+        <div class="cta-section" style="margin-top: 0; border-top: none;">
+            <h2 style="font-family: 'Playfair Display', serif; color: #f5d678; margin-bottom: 25px; font-size: 2.2em;">
+                Градината на ума ти те чака.
+            </h2>
+            <p style="margin-bottom: 30px; font-size: 1.2em; color: #e9e1cb;">
+                Поеми контрол над най-ценния си ресурс – **Вниманието** си.
+            </p>
+            <a href="https://payhip.com/AlphaArchitect" class="btn" target="_blank">
+                <i class="fas fa-bolt"></i> Грабни Промоцията Сега (6.99 лв)
+            </a>
+            <p style="margin-top: 25px; color: #aaa; font-size: 0.9em;">
+                ✓ Моментален достъп • ✓ PDF формат • ✓ 100% Практична система
+            </p>
+        </div>
+        
+        <!-- Footer -->
+        <footer>
+            <p>© 2025 Alpha Architect | Design Your Mind. Master Your Life.</p>
+            <p style="margin-top: 10px;">Внимание: Промоцията е валидна само за първите 20 читатели.</p>
+        </footer>
     </div>
+    
+    <script>
+        // Simple counter for demonstration
+        let count = 20;
+        const counterEl = document.getElementById('counter');
+        
+        // Simulating the counter to show that it decreases over time for urgency
+        // In a real app, this should be connected to a database/API
+        const interval = 300000; // 5 minutes in ms
+        const countLimit = 1; // Stop at 1 to maintain urgency
+        
+        function updateCounter() {
+            // Check if user is on mobile/small screen to speed up the demo decay
+            const decayRate = window.innerWidth <= 768 ? 2 : 1;
+            
+            if (count > countLimit) {
+                count -= decayRate;
+                if (count < countLimit) count = countLimit;
+                counterEl.textContent = count;
+            } else {
+                clearInterval(counterInterval);
+                counterEl.textContent = '1'; // Ensure it stays at 1
+                const urgencyText = document.querySelector('.urgency-text');
+                urgencyText.innerHTML = '<i class="fas fa-lock"></i> **ПОСЛЕДНА БРОЙКА** НА ПРОМО ЦЕНА!';
+            }
+        }
 
-    <footer>
-      © 2025 Alpha Architect — Design your mind. Master your life.
-    </footer>
-  </div>
+        updateCounter(); // Initial check
+        const counterInterval = setInterval(updateCounter, interval / 20); // Faster tick for better demo effect
+    </script>
 </body>
 </html>
